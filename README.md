@@ -7,6 +7,10 @@
 ## Demo
 - [Log In](https://reactpress.zonayed.me/wp-admin) and make a post! See it yourself in action!
 - [Demo](https://reactpress.zonayed.me)
+```
+username: user
+password: user
+```
 
 ## Development
 - ```ReactPress``` is using proxy to work with WordPress during development process assuming your WordPress site is running under ```localhost```. If you are running your WordPress in different port, then please open ```package.json```, find ```proxy``` and replace your WordPress ```localhost``` URL with your own.  
