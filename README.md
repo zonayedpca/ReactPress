@@ -18,6 +18,10 @@ password: user
 ```
 npm start
 ```
+- Use relative link to work with REST API
+```
+/wp-json/wp/v2/posts?per_page=5
+```
 
 ## Production
 - Just like any other React Application, you can run ```build``` command to get the production version of your application:
