@@ -4,6 +4,10 @@
 - This mechanism is completely depended on [WP REST API](https://wordpress.org/plugins/rest-api/) and also [another](https://wordpress.org/plugins/rest-api-filter-fields/) third party plugin. Make sure you have installed them on your ```localhost``` WordPress website during development process. - Don't Worry! It will take care of these two 3rd party plugins itself during production.
 - Please follow WP REST API [Documentation](http://v2.wp-api.org/) to interact with your WordPress site.
 
+## Demo
+- [Log In](https://reactpress.zonayed.me/wp-admin) and make a post! See it yourself in action!
+- [Demo](https://reactpress.zonayed.me)
+
 ## Development
 - ```ReactPress``` is using proxy to work with WordPress during development process assuming your WordPress site is running under ```localhost```. If you are running your WordPress in different port, then please open ```package.json```, find ```proxy``` and replace your WordPress ```localhost``` URL with your own.  
 - Rest of the processes are just like React Application, if you want to start development server:
