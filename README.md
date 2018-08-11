@@ -18,7 +18,7 @@ password: user
 ```
 npm start
 ```
-- Use relative link to work with REST API
+- Use relative links to make a request to WP REST API. Like:
 ```
 /wp-json/wp/v2/posts?per_page=5
 ```
