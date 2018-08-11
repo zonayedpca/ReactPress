@@ -14,7 +14,11 @@ password: user
 
 ## Development
 - ```ReactPress``` is using proxy to work with WordPress during development process assuming your WordPress site is running under ```localhost```. If you are running your WordPress in different port, then please open ```package.json```, find ```proxy``` and replace your WordPress ```localhost``` URL with your own.  
-- Rest of the processes are just like React Application, if you want to start development server:
+- Rest of the processes are just like React Application, Install all the dependecies:
+```
+npm install
+```
+- If you want to start development server:
 ```
 npm start
 ```
@@ -29,6 +33,11 @@ npm start
 npm run build
 ```
 - You will find a new directory named as your React Application Project inside ```build``` directory. This will be your WordPress theme. You can make a ```zip``` version of this directory, or you can copy this directory to your WordPress directory.
+- If you want a different name of your WordPress theme, clone the repo with your name. Like:
+```
+git clone https://github.com/zonayedpca/ReactPress.git yourThemeName
+```
+- You may want to add some additional info, screenshot and so other things. You can always do these things from ```public``` directory 
 
 ## Contribution
 ### Testing
