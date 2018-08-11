@@ -16,7 +16,7 @@ npm start
 ```
 npm run build
 ```
-- You will find a new directory named as your React Application Project inside ```build``` directory. This will be your WordPress theme. You can make a ```zip``` version of this directory, or you copy this directory to your WordPress directory.
+- You will find a new directory named as your React Application Project inside ```build``` directory. This will be your WordPress theme. You can make a ```zip``` version of this directory, or you can copy this directory to your WordPress directory.
 
 ## Contribution
 ### Testing
