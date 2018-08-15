@@ -9,8 +9,7 @@ import './App.css';
 
 class App extends Component {
   state = {
-    info: null,
-    show: false
+    info: null
   }
 
   getSiteInfo = async () => {
@@ -23,16 +22,13 @@ class App extends Component {
   }
 
   render() {
-    const { info, show } = this.state;
+    const { info } = this.state;
 
     return (
       <HashRouter>
         <div className="App">
           <Header info={info} />
-          <p className="App-intro">
-            Create WordPress template using React! To get started, edit <code>src/App.js</code> and save to reload.
-          </p>
-          { show ? <Content /> : <button onClick={() => this.setState({show: true})}>Load Posts</button>}
+          <Content />
         </div>
       </HashRouter>
     );

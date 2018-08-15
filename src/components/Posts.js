@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { Grid, Row, Col, Media } from 'react-bootstrap';
+import { ClipLoader } from 'react-spinners';
+
+import Sidebar from './Sidebar';
+import About from './About';
 
 class Posts extends Component {
   state = {
@@ -8,7 +13,7 @@ class Posts extends Component {
   }
 
   getPost = async () => {
-    const { data: posts } = await axios('/wp-json/wp/v2/posts?per_page=5');
+    const { data: posts } = await axios('/wp-json/wp/v2/posts?per_page=10&_embed');
     this.setState({posts});
   }
 
@@ -19,17 +24,36 @@ class Posts extends Component {
   render() {
     const { posts } = this.state;
     return (
-      <div className="blog-posts"><ul>
-          {!posts ? 'Loading': posts.map(post => <li key={post.id}>
-              <h3>{post.title.rendered}</h3>
-              <ul className="meta">
-                <li>{post.date}</li>
-                <li>{post.author}</li>
+      <div className="blog-posts">
+        <Grid>
+          <Row className="show-grid">
+            <Col xs={12} md={8}>
+              <ul className="posts">
+                {!posts ? <ClipLoader className="loader" /> : posts.map(post => <li key={post.id}>
+                    <Media>
+                      <Media.Left>
+                        <img className="author-img" width={48} height={48} src={post._embedded['author'][0].avatar_urls['48']} alt={post._embedded['author'][0].name} />
+                      </Media.Left>
+                      <Media.Body>
+                        <Media.Heading>{post._embedded['author'][0].name}</Media.Heading>
+                        <ul className="meta">
+                          <li>{post.date}</li>
+                        </ul>
+                      </Media.Body>
+                    </Media>
+                    <h3 className="title"><Link className="btn-more" to={`/post/${post.id}`}>{post.title.rendered}</Link></h3>
+                    {post._embedded['wp:featuredmedia'] ? (post._embedded['wp:featuredmedia'][0].media_details.sizes ? <img alt="featured_image" className="featured_image" src={post._embedded['wp:featuredmedia'][0].media_details.sizes.medium_large.source_url} /> : console.log('Again Not Found')) : console.log('Not Found')}
+                    <p dangerouslySetInnerHTML={{__html: post.excerpt.rendered.substr(0,120)}} />
+                  </li>)}
               </ul>
-              <p dangerouslySetInnerHTML={{__html: post.excerpt.rendered}} />
-              <Link className="btn-more" to={`/${post.categories[0]}/${post.id}`}>Read More...</Link>
-            </li>)}
-        </ul>
+            </Col>
+            <Col xs={6} md={4}>
+              <Sidebar>
+                <About />
+              </Sidebar>
+            </Col>
+          </Row>
+        </Grid>
       </div>
     )
   }
