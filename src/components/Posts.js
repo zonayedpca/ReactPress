@@ -6,6 +6,8 @@ import { ClipLoader } from 'react-spinners';
 
 import Sidebar from './Sidebar';
 import About from './About';
+import Category from './Category';
+import Tags from './Tags';
 
 class Posts extends Component {
   state = {
@@ -50,6 +52,8 @@ class Posts extends Component {
             <Col xs={6} md={4}>
               <Sidebar>
                 <About />
+                <Category />
+                <Tags />
               </Sidebar>
             </Col>
           </Row>
